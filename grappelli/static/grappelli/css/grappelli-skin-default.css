@@ -1091,8 +1091,70 @@ ul.pagination li.separator span {
 .changelist-actions ul span span {
     border: 0;
 }
+.changelist-actions select {
+    display: none;
+}
+.changelist-actions>*[class*="-container"] {
+    float: left;
+    margin: 5px 8px 0 0;
+}
+.changelist-actions>*[class*="-container"] a {
+    font-weight: bold;
+    height: 28px;
+    padding: 5px 5px;
+}
+#changelist-actions-menu {
+    background: -moz-linear-gradient(center top , #444, #333) repeat scroll 0 0 transparent;
+    border-radius: 6px 6px 0 0;
+    bottom: 39px;
+    left: -10px;
+    min-width: 250px;
+    position: absolute;
+    box-shadow: 0 5px 24px #555; -moz-box-shadow: 0 5px 24px #555; -webkit-box-shadow: 0 5px 24px #555;
+}
+#changelist-actions-menu a {
+    border-bottom: 1px solid #555;
+    color: #ccc;
+    display: block;
+    font-weight: bold;
+    padding: 6px 12px;
+}
+#changelist-actions-menu a:hover {
+    background: -moz-linear-gradient(center top , #39BAE5, #309BBF) repeat scroll 0 0 transparent;
+    color: #fff;
+}
+.changelist-actions>*[class*="-container"] a {
+    background: -moz-linear-gradient(center top , #666666, #444444) repeat scroll 0 0 transparent;
+    border-color: #555;
+    border-radius: 5px;
+}
+.changelist-actions>*[class*="-container"] a span {
+    background: url('../img/icons/icon-changelist-actions-hover.png') no-repeat 50% 50% transparent;
+    padding: 5px 10px 5px 10px;
+}
+.changelist-actions>*[class*="-container"] a:hover {
+    background: -moz-linear-gradient(center top , #E3E3E3, #D6D6D6) repeat scroll 0 0 transparent;
+}
+.changelist-actions>*[class*="-container"] a:hover span {
+    background: url('../img/icons/icon-changelist-actions.png') no-repeat 50% 50%;
+}
 
-
+.changelist-actions>*[class*="-container"] a.opened {
+    background: -moz-linear-gradient(center top , #39BAE5, #309BBF) repeat scroll 0 0 transparent;
+    border-color: #309BBF;
+}
+.changelist-actions>*[class*="-container"] a.opened span {
+    background: url('../img/icons/icon-changelist-actions-hover.png') no-repeat 50% 50%;
+}
+.changelist-actions>*[class*="-container"] a.disabled {
+    cursor: default;
+    opacity: 0.4;
+    background: -moz-linear-gradient(center top , #666666, #444444) repeat scroll 0 0 transparent!important;
+    border-color: #333;
+}
+.changelist-actions>*[class*="-container"] a.disabled span {
+    background: url('../img/icons/icon-changelist-actions-hover.png') no-repeat 50% 50% transparent;
+}
 
 /*  Module Footer
 ------------------------------------------------------------------------------------------------------ */
@@ -1380,16 +1442,18 @@ input[type=submit], input[type=reset], input[type=button], button {
 /*  Buttons & Buttonlike Links
 ------------------------------------------------------------------------------------------------------ */
 
+.action-button-container a, 
 .submit-row a.submit-link, 
 .submit-row a.delete-link, 
 .submit-row a.cancel-link {
     border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
 }
+.action-button-container a, 
 .submit-row a.submit-link, 
 .submit-row input[type=submit] {
     border: 1px solid #267c99;
 }
-
+.action-button-container a, 
 input[type=submit], 
 #bookmark-add-cancel, 
 .submit-row a.delete-link:link, .submit-row a.delete-link:visited, 
@@ -1416,7 +1480,7 @@ input[type=submit],
     background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#444));
     background: -o-linear-gradient(top, #666, #444);
 }
-
+.action-button-container a, 
 input[type=submit], 
 .submit-row a.submit-link:link, .submit-row a.submit-link:visited {
     color: #fff;
@@ -1425,6 +1489,7 @@ input[type=submit],
     background: -webkit-gradient(linear, left top, left bottom, from(#39bae5), to(#309bbf));
     background: -o-linear-gradient(top, #39bae5, #309bbf);
 }
+.action-button-container a:hover, 
 input[type=submit]:hover, 
 #bookmark-add-cancel:hover, 
 .submit-row a.submit-link:hover, .submit-row a.submit-link:active, 

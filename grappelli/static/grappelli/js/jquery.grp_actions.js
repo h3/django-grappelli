@@ -131,5 +131,50 @@
         selectedClass: "selected",
         actionSelect: "div.changelist-actions select"
     };
+
+    $(function(){
+        var actions = $('select[name="action"]').hide();
+        var actionsMenu = $('<div id="changelist-actions-menu" />').hide().insertAfter(actions);
+
+        var actionsUpdateStatus = function() {
+            if ($(".action-checkbox input:checked").length > 0) {
+                $('.action-button-container a').removeClass('disabled');
+            }
+            else {
+                $('.action-button-container a').addClass('disabled');
+            }
+        };
+        
+        $(".action-checkbox input, #action-toggle").change(actionsUpdateStatus);
+
+        $.each(actions.find('option'), function(i, option) {
+            var opt = $(option);
+            if (opt.val() !== '') {
+                $('<a href="#'+ opt.val() +'" />').appendTo(actionsMenu).text(opt.text());
+                $('<a href="#'+ opt.val() +'" />').appendTo(actionsMenu).text(opt.text());
+                $('<a href="#'+ opt.val() +'" />').appendTo(actionsMenu).text(opt.text());
+                $('<a href="#'+ opt.val() +'" />').appendTo(actionsMenu).text(opt.text());
+            }
+        });
+
+        $('<div class="action-button-container"><a class="closed"><span></span></a></div>')
+            .insertAfter(actions).find('a').bind('click', function(){
+                var a = $(this);
+                if (!a.hasClass('disabled')) {
+                    if (a.hasClass('closed')) {
+                        actionsMenu.show('fast', function(){
+                            a.removeClass('closed').addClass('opened');
+                        });
+                    }
+                    else {
+                        actionsMenu.hide('fast', function(){
+                            a.addClass('closed').removeClass('opened');
+                        });
+                    }
+                }
+            });
+        actionsUpdateStatus();
+    });
+
 })(django.jQuery);
 
